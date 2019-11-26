@@ -1,24 +1,55 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
+  app.get("/", async function (req, res) {
+    try {
+      const posts = await db.post.findAll()
+      res.render("index", { posts });
+    }
+    catch (err) {
+      console.log(err)
+      res.status(500).end();
+    };
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
+  app.get("/api/post", async function (req, res) {
+    try {
+      const posts = await db.post.findAll()
+      res.render("index", { posts });
+    }
+    catch (err) {
+      console.log(err)
+      res.status(500).end();
+    };
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
+  app.post("/api/posts", async function (req, res) {
+    try {
+      const { username } = req.body;
+      const posts = await db.post.create({
+        username
+      });
+      res.json("index", { posts });
+    }
+    catch (err) {
+      console.log(err)
+      res.status(500).end();
+    };
   });
-};
+
+  app.delete("/api/posts/:id", async function (req, res) {
+    try {
+      const posts = await db.post.destroy({
+        where: {
+          id: req.params.id
+        }
+      });
+      res.json(posts);
+    }
+    catch (err) {
+      console.log(err)
+      res.status(500).end();
+    };
+  });
+}
