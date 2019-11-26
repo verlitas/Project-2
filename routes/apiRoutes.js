@@ -4,8 +4,9 @@ module.exports = function (app) {
   // Get all examples
   app.get("/", async function (req, res) {
     try {
-      const posts = await db.post.findAll()
-      res.render("index", { posts });
+      const users = await db.user.findAll({ raw: true })
+      console.log(users);
+      res.render("index", { users });
     }
     catch (err) {
       console.log(err)
