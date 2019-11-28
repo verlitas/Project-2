@@ -24,5 +24,12 @@ module.exports = function (sequelize, DataTypes) {
     }
   }
   );
+  user.associate = function (models) {
+    models.user.hasMany(models.post, {
+      foreignKey: {
+        allowNull: true
+      }
+    });
+  };
   return user;
 };
