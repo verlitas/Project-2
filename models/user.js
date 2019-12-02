@@ -18,11 +18,18 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    description: {
+    bio: {
       type: DataTypes.TEXT,
       allowNull: false
     }
   }
   );
+  user.associate = function (models) {
+    models.user.hasMany(models.post, {
+      foreignKey: {
+        allowNull: true
+      }
+    });
+  };
   return user;
 };

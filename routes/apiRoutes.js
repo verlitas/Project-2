@@ -4,7 +4,13 @@ module.exports = function (app) {
   // Get all examples
   app.get("/", async function (req, res) {
     try {
-      const posts = await db.post.findAll()
+      const posts = await db.post.findAll(
+        {
+          raw: true,
+          include: db.user
+        }
+      );
+
       res.render("index", { posts });
     }
     catch (err) {
