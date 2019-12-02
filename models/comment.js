@@ -23,8 +23,6 @@ module.exports = function (sequelize, DataTypes) {
     };
 
     comment.associate = function (models) {
-        //belongsToMany??
-        //needs to belongTo models.post as well...
         models.comment.belongsTo(models.post, {
             foreignKey: {
                 allowNull: false
