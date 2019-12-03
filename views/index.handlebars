@@ -1,19 +1,27 @@
-<header>
+<header class="jumbotron container">
   <div class="row">
-    <div class="large-12 columns">
-      {{> header }}
+    <div class="col-12">
+      <h1>Buzzer!</h1>
+      <p>What's buzzin'?</p>
     </div>
   </div>
 </header>
 
-<main>
+<main class="container">
   <div class="row">
-    <div class="large-4 columns">
-      {{> sidebar }}
+    <div class="col-4">
+      <div class="container">
+        <form>
+          <div class="form-group">
+            <textarea class="form-control" id="createPost" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Create new buzz!</button>
+        </form>
+      </div>
     </div>
 
 
-    <div class="large-8 columns">
+    <div class="col-8">
 
       {{#each posts}}
       {{> post }}
@@ -23,10 +31,11 @@
   </div>
 </main>
 
-<footer>
+<footer class="container">
   <div class="row">
-    <div class="large-12 columns">
-      {{> footer }}
+    <div class="col-12">
+      <hr />
+      <p>This is the footer partial.</p>
     </div>
   </div>
 </footer>
