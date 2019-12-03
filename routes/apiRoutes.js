@@ -5,14 +5,14 @@ module.exports = function (app) {
   // Home
   app.get("/home", async function (req, res) {
     try {
-      const posts = await db.post.findAll(
+      const posts = await db.user.findAll(
         {
           raw: true,
-          include: db.user
+          include: db.post
         }
       );
 
-      res.render("index", { posts });
+      res.json(posts);
     }
     catch (err) {
       console.log(err)
