@@ -24,7 +24,7 @@ module.exports = function (app) {
   app.get("/api/posts", async function (req, res) {
     try {
       const posts = await db.post.findAll()
-      res.json("index", { posts });
+      res.json(posts);
     }
     catch (err) {
       console.log(err)
@@ -36,7 +36,7 @@ module.exports = function (app) {
   app.get("/api/users", async function (req, res) {
     try {
       const users = await db.user.findAll()
-      res.render("index", { users });
+      res.json(users);
     }
     catch (err) {
       console.log(err)
@@ -47,12 +47,12 @@ module.exports = function (app) {
   // Username of a Specific User
   app.get("/api/users/:username", async function (req, res) {
     try {
-      const usernames = await db.post.findOne({
+      const usernames = await db.user.findOne({
         where: {
-          id: req.params.username
+          username: req.params.username
         }
       })
-      res.render("index", { usernames });
+      res.json(usernames);
     }
     catch (err) {
       console.log(err)
@@ -61,14 +61,15 @@ module.exports = function (app) {
   });
 
   // Posts Associated with Specific Username
-  app.get("/api/users/:username/:posts", async function (req, res) {
+  app.get("/api/users/:username/posts", async function (req, res) {
     try {
-      const posts = await db.post.findOne({
+      const { posts } = await db.user.findOne({
         where: {
-          id: req.params.post
-        }
+          username: req.params.username
+        },
+        include: [db.post]
       })
-      res.render("index", { posts });
+      res.json(posts);
     }
     catch (err) {
       console.log(err)
@@ -77,46 +78,27 @@ module.exports = function (app) {
   });
 
   // Comments Associated with Specific Username
-  app.get("/api/users/:username/:comments", async function (req, res) {
+  app.get("/api/users/:username/comments", async function (req, res) {
     try {
-      const comments = await db.comment.findOne({
+      const { posts } = await db.user.findOne({
         where: {
-          id: req.params.comment
-        }
+          username: req.params.username
+        },
+        include: [
+          { model: db.post, include: [db.comment] }
+        ]
       })
-      res.render("index", { comments });
-    }
-    catch (err) {
-      console.log(err)
-      res.status(500).end();
-    };
-  });
 
-  // Comments Associated with a Specific Post ID
-  app.get("/api/posts/:postid/:comments", async function (req, res) {
-    try {
-      const comments = await db.comment.findOne({
-        where: {
-          id: req.params.comment
-        }
-      })
-      res.render("index", { comments });
-    }
-    catch (err) {
-      console.log(err)
-      res.status(500).end();
-    };
-  });
+      const comments = [];
 
-  // Comment ID Associated to a Specific Post ID 
-  app.get("/api/posts/:postid/comments/:commentsid", async function (req, res) {
-    try {
-      const comments = await db.comment.findOne({
-        where: {
-          id: req.params.comment
-        }
-      })
-      res.render("index", { comments });
+      posts.forEach(post => {
+        return post.comments.forEach(comment => {
+          return comments.push(comment);
+        });
+      });
+
+      res.json(comments);
+      console.log(comments);
     }
     catch (err) {
       console.log(err)
