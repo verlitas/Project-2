@@ -37,11 +37,11 @@ db.sequelize.sync({ force: true }).then(() => {
     db.post.bulkCreate([
         {
             text: "This is a beautiful post from author 1",
-            userId: 1
+            userId: 1,
         },
         {
             text: "Another beautiful post from author 1",
-            userId: 1
+            userId: 1,
         },
         {
             text: "This is a beautiful post from author 2",
@@ -76,4 +76,11 @@ db.sequelize.sync({ force: true }).then(() => {
             userId: 5
         }
     ]);
+
+    db.comment.bulkCreate([
+        {
+            text: "this is a comment",
+            postId: 1
+        }
+    ])
 });
