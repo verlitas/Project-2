@@ -1,8 +1,9 @@
 var db = require("../models");
 
 module.exports = function (app) {
-  // Get all examples
-  app.get("/", async function (req, res) {
+  // ---------------------------------- Get Routes
+  // Home
+  app.get("/home", async function (req, res) {
     try {
       const posts = await db.post.findAll(
         {
@@ -19,10 +20,11 @@ module.exports = function (app) {
     };
   });
 
-  app.get("/api/post", async function (req, res) {
+  // Posts
+  app.get("/api/posts", async function (req, res) {
     try {
       const posts = await db.post.findAll()
-      res.render("index", { posts });
+      res.json("index", { posts });
     }
     catch (err) {
       console.log(err)
@@ -30,7 +32,7 @@ module.exports = function (app) {
     };
   });
 
-  
+  // Users
   app.get("/api/users", async function (req, res) {
     try {
       const users = await db.user.findAll()
@@ -42,76 +44,88 @@ module.exports = function (app) {
     };
   });
 
+  // Username of a Specific User
   app.get("/api/users/:username", async function (req, res) {
     try {
       const usernames = await db.post.findOne({
         where: {
           id: req.params.username
-        }})
-        res.render("index", { usernames });
-      }
+        }
+      })
+      res.render("index", { usernames });
+    }
     catch (err) {
       console.log(err)
       res.status(500).end();
     };
   });
 
-  app.get("/api/users/username/:posts", async function (req, res) {
+  // Posts Associated with Specific Username
+  app.get("/api/users/:username/:posts", async function (req, res) {
     try {
       const posts = await db.post.findOne({
         where: {
           id: req.params.post
-        }})
-        res.render("index", { posts });
-      }
+        }
+      })
+      res.render("index", { posts });
+    }
     catch (err) {
       console.log(err)
       res.status(500).end();
     };
   });
 
-  app.get("/api/users/username/:comments", async function (req, res) {
+  // Comments Associated with Specific Username
+  app.get("/api/users/:username/:comments", async function (req, res) {
     try {
       const comments = await db.comment.findOne({
         where: {
           id: req.params.comment
-        }})
-        res.render("index", { comments });
-      }
+        }
+      })
+      res.render("index", { comments });
+    }
     catch (err) {
       console.log(err)
       res.status(500).end();
     };
   });
 
-  app.get("/api/posts/postid/:comments", async function (req, res) {
+  // Comments Associated with a Specific Post ID
+  app.get("/api/posts/:postid/:comments", async function (req, res) {
     try {
       const comments = await db.comment.findOne({
         where: {
           id: req.params.comment
-        }})
-        res.render("index", { comments });
-      }
+        }
+      })
+      res.render("index", { comments });
+    }
     catch (err) {
       console.log(err)
       res.status(500).end();
     };
   });
 
-  app.get("/api/posts/postid/comments/:commentsid", async function (req, res) {
+  // Comment ID Associated to a Specific Post ID 
+  app.get("/api/posts/:postid/comments/:commentsid", async function (req, res) {
     try {
       const comments = await db.comment.findOne({
         where: {
           id: req.params.comment
-        }})
-        res.render("index", { comments });
-      }
+        }
+      })
+      res.render("index", { comments });
+    }
     catch (err) {
       console.log(err)
       res.status(500).end();
     };
   });
 
+  // ---------------------------------- Post Routes
+  // Posts
   app.post("/api/posts", async function (req, res) {
     try {
       const { username } = req.body;
@@ -125,7 +139,8 @@ module.exports = function (app) {
       res.status(500).end();
     };
   });
-  
+
+  // Comment
   app.post("/api/posts/postid/comments/:commentid", async function (req, res) {
     try {
       const { comments } = req.body;
@@ -139,7 +154,8 @@ module.exports = function (app) {
       res.status(500).end();
     };
   });
-  
+
+  // Username
   app.post("/api/users/:username", async function (req, res) {
     try {
       const { users } = req.user;
@@ -154,6 +170,8 @@ module.exports = function (app) {
     };
   });
 
+  // ---------------------------------- Delete Route
+  // Delete Post by ID
   app.delete("/api/posts/:id", async function (req, res) {
     try {
       const posts = await db.post.destroy({
