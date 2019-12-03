@@ -110,11 +110,11 @@ module.exports = function (app) {
   // Posts
   app.post("/api/posts", async function (req, res) {
     try {
-      const { username } = req.body;
+      const { text } = req.body;
       const posts = await db.post.create({
-        username
+        text
       });
-      res.json("index", { posts });
+      res.json(posts);
     }
     catch (err) {
       console.log(err)
@@ -123,13 +123,15 @@ module.exports = function (app) {
   });
 
   // Comment
-  app.post("/api/posts/postid/comments/:commentid", async function (req, res) {
+  app.post("/api/posts/:postid/comments", async function (req, res) {
     try {
-      const { comments } = req.body;
+      const { text } = req.body;
+      const postId = req.params.postid;
       const posts = await db.comment.create({
-        comments
+        text,
+        postId
       });
-      res.json("index", { posts });
+      res.json(posts);
     }
     catch (err) {
       console.log(err)
@@ -138,13 +140,17 @@ module.exports = function (app) {
   });
 
   // Username
-  app.post("/api/users/:username", async function (req, res) {
+  app.post("/api/users", async function (req, res) {
     try {
-      const { users } = req.user;
+      const { bio, username, firstName, lastName } = req.body;
+      // const username = req.params.username;
       const posts = await db.user.create({
-        users
+        bio,
+        username,
+        firstName,
+        lastName
       });
-      res.json("index", { posts });
+      res.json(posts);
     }
     catch (err) {
       console.log(err)
