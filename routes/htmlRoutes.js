@@ -6,10 +6,10 @@ module.exports = function (app) {
       const posts = await db.post.findAll(
         {
           raw: true,
-          include: db.user
+          include: [db.comment]
         }
       );
-
+      // console.log(posts);
       res.render("index", { posts });
     }
     catch (err) {
