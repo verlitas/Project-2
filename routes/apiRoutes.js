@@ -23,7 +23,11 @@ module.exports = function (app) {
   // Posts
   app.get("/api/posts", async function (req, res) {
     try {
-      const posts = await db.post.findAll()
+      const posts = await db.post.findAll({
+        order: [
+          ['createdAt', 'DESC']
+        ]
+      })
       res.json(posts);
     }
     catch (err) {
@@ -127,10 +131,8 @@ module.exports = function (app) {
   // Posts
   app.post("/api/posts", async function (req, res) {
     try {
-      const { text, displayName } = req.body;
-      const posts = await db.post.create({
-        text, displayName
-      });
+      const posts = await db.post.create(req.body);
+
       res.json(posts);
     }
     catch (err) {

@@ -9,8 +9,8 @@ module.exports = function (app) {
           include: [db.comment]
         }
       );
-      // console.log(posts);
-      res.render("index", { posts });
+      const sortedPosts = posts.sort((a, b) => b.createdAt - a.createdAt);
+      res.render("index", { sortedPosts });
     }
     catch (err) {
       console.log(err)
