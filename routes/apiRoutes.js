@@ -127,9 +127,9 @@ module.exports = function (app) {
   // Posts
   app.post("/api/posts", async function (req, res) {
     try {
-      const { text } = req.body;
+      const { text, displayName } = req.body;
       const posts = await db.post.create({
-        text
+        text, displayName
       });
       res.json(posts);
     }
@@ -193,7 +193,7 @@ module.exports = function (app) {
       res.status(500).end();
     }
   })
-  
+
   // // ---------------------------------- Delete Route
   // // Delete Post by ID
   // app.delete("/api/posts/:id", async function (req, res) {
