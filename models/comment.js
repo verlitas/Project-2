@@ -9,17 +9,19 @@ module.exports = function (sequelize, DataTypes) {
         text: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        displayName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: "Anonymous"
+        },
+        avatar: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0
         }
     });
-
     comment.associate = function (models) {
-        //belongsToMany??
-        //needs to belongTo models.post as well...
-        models.comment.belongsTo(models.user, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
         models.comment.belongsTo(models.post, {
             foreignKey: {
                 allowNull: false
