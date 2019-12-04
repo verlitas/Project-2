@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "project2db",
+    "database": "buzzerdb",
     "host": "localhost",
     "dialect": "mysql"
   },
