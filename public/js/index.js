@@ -14,7 +14,7 @@ $('#newBuzzForm').submit(function (event) {
   event.preventDefault();
 
   const text = $newBuzzText.val().trim();
-  const displayName = $newBuzzDisplayName.val().trim();
+  const displayName = $newBuzzDisplayName.val().trim() || 'Anonymous';
 
   $.post({
     url: 'api/posts'
