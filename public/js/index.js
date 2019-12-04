@@ -18,7 +18,11 @@ $('#newBuzzForm').submit(function (event) {
 
   $.post({
     url: 'api/posts'
-  })
+  }, {
+    text, displayName
+  }, () => {
+    console.log('posted');
+  });
 });
 
 // // Get references to page elements
