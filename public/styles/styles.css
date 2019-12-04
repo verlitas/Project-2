@@ -18,8 +18,12 @@ body {
   box-shadow: 3px 2px 5px 2px black;
 }
 
-#createPost {
-  box-shadow: inset 3px 2px 6px 2px black;
+#newBuzzText {
+  box-shadow: inset 2px 1px 6px 2px black;
+}
+
+#newBuzzDisplayName {
+  box-shadow: inset 2px 1px 6px 2px black;
 }
 
 .jumbotron {
@@ -27,6 +31,6 @@ body {
   margin-top: 10px;
 }
 
-.card-image {
+.card-img {
   object-fit: contain;
 }
