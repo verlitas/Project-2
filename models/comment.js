@@ -20,9 +20,6 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         });
-    };
-
-    comment.associate = function (models) {
         models.comment.belongsTo(models.post, {
             foreignKey: {
                 allowNull: false

@@ -80,7 +80,53 @@ db.sequelize.sync({ force: true }).then(() => {
     db.comment.bulkCreate([
         {
             text: "this is a comment",
-            postId: 1
+            postId: 1,
+            userId: 1
+        },
+        {
+            text: "this is a comment",
+            postId: 1,
+            userId: 2
+        },
+        {
+            text: "this is a comment",
+            postId: 1,
+            userId: 3
+        },
+        {
+            text: "this is a comment",
+            postId: 1,
+            userId: 4
+        },
+        {
+            text: "this is a comment",
+            postId: 1,
+            userId: 5
+        },
+        {
+            text: "this is a comment",
+            postId: 2,
+            userId: 1
+        },
+        {
+            text: "this is a comment",
+            postId: 2,
+            userId: 2
+        },
+        {
+            text: "this is a comment",
+            postId: 4,
+            userId: 1
+        },
+        {
+            text: "this is a comment",
+            postId: 4,
+            userId: 3
+        },
+        {
+            text: "this is a comment",
+            postId: 4,
+            userId: 5
         }
     ])
 });

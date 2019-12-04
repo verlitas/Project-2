@@ -7,10 +7,14 @@
         </div>
         <div class="col-md-10">
           <div class="card-body">
-            <h4 class="card-title">{{this.[user.username]}}</h4>
+            <h4 class="card-title">{{this.displayName}}</h4>
             <p class="card-text"><small class="text-muted">{{this.createdAt}}</small></p>
             <p class="card-text">{{this.text}}</p>
             <a href="#" class="card-link">Reply</a>
+            <h5>Comments</h5>
+            {{#each comments}}
+            {{> comment}}
+            {{/each}}
           </div>
         </div>
       </div>

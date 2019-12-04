@@ -17,14 +17,12 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         });
-    };
-
-    post.associate = function (models) {
         models.post.hasMany(models.comment, {
             foreignKey: {
                 allowNull: false
             }
         });
     };
+
     return post;
 };
