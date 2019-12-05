@@ -18,7 +18,7 @@ $('#newBuzzForm').submit(function (event) {
   $.post({
     url: 'api/posts'
   }, {
-    displayName: formInputs[0].value,
+    displayName: formInputs[0].value || 'Anonymous',
     avatar: formInputs[1].value,
     text: formInputs[2].value
   }, () => {
