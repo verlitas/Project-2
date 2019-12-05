@@ -144,11 +144,12 @@ module.exports = function (app) {
   // Comment
   app.post("/api/posts/:postid/comments", async function (req, res) {
     try {
-      const { text } = req.body;
+      const { text, displayName } = req.body;
       const postId = req.params.postid;
       const posts = await db.comment.create({
         text,
-        postId
+        postId,
+        displayName
       });
       res.json(posts);
     }
