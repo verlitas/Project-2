@@ -1,23 +1,39 @@
 <header class="jumbotron container">
   <div class="row">
-    <div class="col-6 px-5">
+    <div class="col-3">
+      <img src="/public/img/Bee.png" alt="Bee">
+      <h1>BeeChin!</h1>
+      <p>What's buzzin'?</p>
+    </div>
+    <div class="col-9 px-5">
       <form class="form" id="newBuzzForm">
+        <div class="row">
+          <div class="col-6">
+            <h5 class="mb-1">Display name</h5>
+            <div class="form-group">
+              <input id="newBuzzDisplayName" type="text" class="form-control"></input>
+              <small class="text-muted">(Leave blank to post anonymously)</small>
+            </div>
+          </div>
+          <div class="col-6">
+            <h5 class="mb-1">Avatar</h5>
+            <select title="Select your avatar" class="selectpicker">
+              <option value="1">Lily</option>
+              <option value="2">Mistletoe</option>
+              <option value="3">Pansy</option>
+              <option value="4">Succulent</option>
+              <option value="5">Sunflower</option>
+            </select>
+          </div>
+        </div>
         <h3 class="mb-1">Create new buzz!</h3>
         <div class="form-group">
           <textarea id="newBuzzText" class="form-control" rows="3"></textarea>
         </div>
-        <h5 class="mb-1">Display name</h5>
-        <div class="form-group">
-          <input id="newBuzzDisplayName" type="text" class="form-control"></input>
-          <small class="text-muted">(Leave blank to post anonymously)</small>
-        </div>
         <button type="submit" class="btn btn-primary">Create new buzz!</button>
       </form>
     </div>
-    <div class="col-6">
-      <h1>BeeChin!</h1>
-      <p>What's buzzin'?</p>
-    </div>
+  </div>
   </div>
 </header>
 
