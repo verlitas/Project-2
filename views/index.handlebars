@@ -11,14 +11,14 @@
           <div class="col-6">
             <h4 class="mb-1">Display name</h4>
             <div class="form-group">
-              <input id="newBuzzDisplayName" type="text" class="form-control"></input>
+              <input id="newBuzzDisplayName" name="displayName" type="text" class="form-control"></input>
               <div class="small">(Leave blank to post anonymously)</div>
             </div>
           </div>
           <div class="col-6">
             <h4 class="mb-1">Avatar</h4>
             <div class="form-group">
-              <select title="Select your avatar" class="selectpicker">
+              <select name="avatar" title="Select your avatar" class="selectpicker">
                 <option value="1">Lily</option>
                 <option value="2">Mistletoe</option>
                 <option value="3">Pansy</option>
@@ -30,7 +30,7 @@
         </div>
         <h4 class="mb-1">Create new buzz!</h4>
         <div class="form-group">
-          <textarea id="newBuzzText" class="form-control" rows="3"></textarea>
+          <textarea id="newBuzzText" name="text" class="form-control" rows="3"></textarea>
         </div>
         <div class="text-center">
           <button type="submit" class="submit">Create new buzz!</button>

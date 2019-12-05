@@ -13,13 +13,14 @@ const $newBuzzDisplayName = $('#newBuzzDisplayName');
 $('#newBuzzForm').submit(function (event) {
   event.preventDefault();
 
-  const text = $newBuzzText.val().trim();
-  const displayName = $newBuzzDisplayName.val().trim() || 'Anonymous';
+  const formInputs = $(this).serializeArray();
 
   $.post({
     url: 'api/posts'
   }, {
-    text, displayName
+    displayName: formInputs[0].value,
+    avatar: formInputs[1].value,
+    text: formInputs[2].value
   }, () => {
     location.reload(true);
   });
@@ -32,8 +33,9 @@ $('.new-comment').submit(function (event) {
   const formInputs = $(this).serializeArray();
   const newComment = {
     postId,
-    text: formInputs[1].value,
-    displayName: formInputs[0].value
+    avatar: formInputs[1].value,
+    displayName: formInputs[0].value || 'Anonymous',
+    text: formInputs[2].value.trim()
   }
 
   $.post({
