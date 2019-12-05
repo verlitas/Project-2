@@ -22,8 +22,25 @@
 </header>
 
 <main class="container">
-  <div class="row">
-    <div class="col-12">
+
+  <div class="card">
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Newest</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/best">Best</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/oldest">Oldest</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/worst">Worst</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
       {{#each sortedPostsWithComments}}
       {{> post }}
       {{/each}}
