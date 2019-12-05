@@ -130,6 +130,7 @@ module.exports = function (app) {
   // ---------------------------------- Post Routes
   // Posts
   app.post("/api/posts", async function (req, res) {
+    console.log(req.body);
     try {
       const posts = await db.post.create(req.body);
 
@@ -144,12 +145,13 @@ module.exports = function (app) {
   // Comment
   app.post("/api/posts/:postid/comments", async function (req, res) {
     try {
-      const { text, displayName } = req.body;
+      const { text, displayName, avatar } = req.body;
       const postId = req.params.postid;
       const posts = await db.comment.create({
-        text,
         postId,
-        displayName
+        text,
+        displayName,
+        avatar
       });
       res.json(posts);
     }

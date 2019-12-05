@@ -13,13 +13,14 @@ const $newBuzzDisplayName = $('#newBuzzDisplayName');
 $('#newBuzzForm').submit(function (event) {
   event.preventDefault();
 
-  const text = $newBuzzText.val().trim();
-  const displayName = $newBuzzDisplayName.val().trim() || 'Anonymous';
+  const formInputs = $(this).serializeArray();
 
   $.post({
     url: 'api/posts'
   }, {
-    text, displayName
+    displayName: formInputs[0].value || 'Anonymous',
+    avatar: formInputs[1].value,
+    text: formInputs[2].value
   }, () => {
     location.reload(true);
   });
@@ -32,7 +33,9 @@ $('.new-comment').submit(function (event) {
   const formInputs = $(this).serializeArray();
   const newComment = {
     postId,
-    text: formInputs[0].value
+    avatar: formInputs[1].value,
+    displayName: formInputs[0].value || 'Anonymous',
+    text: formInputs[2].value.trim()
   }
 
   $.post({
@@ -48,13 +51,20 @@ $('.like-button').click(function () {
   const postId = $(this).data().id;
   const scoreChange = $(this).data().score;
 
+  $(this).removeClass('disabled');
+  $(this).siblings('button').addClass('disabled');
+  // $(this).addClass('disabled')
   console.log(postId, scoreChange);
 
-  $.ajax({
-    url: `api/posts/${postId}`,
-    method: 'PUT'
-  },
-    { id: postId, score: scoreChange },
+  $.ajax(
+    {
+      url: `api/posts/${postId}`,
+      method: 'PUT'
+    },
+    {
+      id: postId,
+      score: scoreChange
+    },
     () => {
       location.reload(true);
     });
