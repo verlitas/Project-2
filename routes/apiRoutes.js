@@ -182,22 +182,23 @@ module.exports = function (app) {
   // ----------------------------------- Put Route
   app.put("/api/posts/:id", async function (req, res) {
     console.log(req.body);
-    // try {
-    //   db.post.update(
-    //     {
-    //       score: db.sequelize.literal(`score + ${req.body.score}`)
-    //     },
-    //     {
-    //       where: {
-    //         id: req.params.id
-    //       }
-    //     });
-    //   res.status(200)
-    // }
-    // catch (err) {
-    //   console.log(err)
-    //   res.status(500).end();
-    // }
+
+    try {
+      db.post.update(
+        {
+          score: db.sequelize.literal(`score${req.body.score}`)
+        },
+        {
+          where: {
+            id: req.body.id
+          }
+        });
+      res.status(200)
+    }
+    catch (err) {
+      console.log(err)
+      res.status(500).end();
+    }
   });
 
   // // ---------------------------------- Delete Route
