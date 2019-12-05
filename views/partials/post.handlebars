@@ -3,36 +3,59 @@
     <div class="card">
       <div class="row no-gutters">
         <div class="col-md-2">
-          <img src="https://placehold.it/80x80&text=[img]" class="card-img" alt="...">
+
+          <div class="row justify-content-center">
+            <img src="img/Sunflower.png" class="card-img" alt="...">
+          </div>
+
+          <div class="row justify-content-center">
+            <button data-score="-1" data-id={{this.id}} class="btn btn-small btn-danger like-button mr-3 mb-3"><i
+                class="fa fa-arrow-down"></i></button>
+            <h3 class="d-inline">{{this.score}}</h3>
+            <button data-score="1" data-id={{this.id}} class="btn btn-small btn-success like-button ml-3 mb-3"><i
+                class="fa fa-arrow-up"></i></button>
+          </div>
+
         </div>
         <div class="col-md-10">
           <div class="card-body">
             <h4 class="card-title">{{this.displayName}}</h4>
             <p class="card-text"><small class="text-muted">{{this.createdAt}}</small></p>
             <p class="card-text">{{this.text}}</p>
-            <hr class="my-4" />
-            <button data-score="-1" data-id={{this.id}} class="btn btn-small btn-danger like-button mr-3 mb-3"><i
-                class="fa fa-arrow-down"></i></button>
-            <h3 class="d-inline">{{this.score}}</h3>
-            <button data-score="1" data-id={{this.id}} class="btn btn-small btn-success like-button ml-3 mb-3"><i
-                class="fa fa-arrow-up"></i></button>
-            <h5>Leave a comment</h5>
-            <form data-id={{this.id}} class="container p-3 mb-3 bg-light border new-comment">
+            <hr>
+            <h6>Leave a comment</h6>
+            <form data-id={{this.id}} id="form" class="container p-3 mb-3 bg-light border new-comment">
+              <div class="row">
+                <div class="col-6">
+                  <label>
+                    <h6 class="mb-0">Display name</h6>
+                  </label>
+                  <div class="form-group">
+                    <input name="displayName" type="text"></input>
+                    <br>
+                    <small class="mt-0 text-muted">(Leave blank to post anonymously)</small>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <h6 class="mb-0">Avatar</h6>
+                  <div class="form-group">
+                    <select title="Select your avatar">
+                      <option value="1">Lily</option>
+                      <option value="2">Mistletoe</option>
+                      <option value="3">Pansy</option>
+                      <option value="4">Succulent</option>
+                      <option value="5">Sunflower</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
               <label>
                 <h6 class="mb-0">Comment</h6>
               </label>
               <div class="form-group">
                 <textarea name="text" class="form-control" rows="2"></textarea>
               </div>
-              <label>
-                <h6 class="mb-0">Display name</h6>
-              </label>
-              <div class="form-group">
-                <input name="displayName" type="text"></input>
-                <br>
-                <small class="mt-0 text-muted">(Leave blank to post anonymously)</small>
-              </div>
-              <button type="submit" class="btn btn-small btn-primary">Reply</button>
+              <button type="submit" class="btn btn-small btn-warning">Reply</button>
             </form>
             {{#if this.comments}}
             <div class="card bg-light">

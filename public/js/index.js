@@ -33,7 +33,7 @@ $('.new-comment').submit(function (event) {
   const newComment = {
     postId,
     text: formInputs[0].value,
-    displayName: formInputs[1].value
+    displayName: formInputs[1].value || "Anonymous"
   }
 
   $.post({

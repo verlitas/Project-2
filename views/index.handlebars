@@ -1,7 +1,7 @@
 <header class="jumbotron container">
   <div class="row">
     <div class="col-3">
-      <img src="/public/img/Bee.png" alt="Bee">
+      <img src="/img/Bee.png" id="logo" alt="Bee">
       <h1>BeeChin!</h1>
       <p>What's buzzin'?</p>
     </div>
@@ -9,28 +9,33 @@
       <form class="form" id="newBuzzForm">
         <div class="row">
           <div class="col-6">
-            <h5 class="mb-1">Display name</h5>
+            <h4 class="mb-1">Display name</h4>
             <div class="form-group">
               <input id="newBuzzDisplayName" type="text" class="form-control"></input>
-              <small class="text-muted">(Leave blank to post anonymously)</small>
+              <div class="small">(Leave blank to post anonymously)</div>
             </div>
           </div>
           <div class="col-6">
-            <h5 class="mb-1">Avatar</h5>
-            <select title="Select your avatar" class="selectpicker">
-              <option value="1">Lily</option>
-              <option value="2">Mistletoe</option>
-              <option value="3">Pansy</option>
-              <option value="4">Succulent</option>
-              <option value="5">Sunflower</option>
-            </select>
+            <h4 class="mb-1">Avatar</h4>
+            <div class="form-group">
+              <select title="Select your avatar" class="selectpicker">
+                <option value="1">Lily</option>
+                <option value="2">Mistletoe</option>
+                <option value="3">Pansy</option>
+                <option value="4">Succulent</option>
+                <option value="5">Sunflower</option>
+              </select>
+            </div>
           </div>
         </div>
-        <h3 class="mb-1">Create new buzz!</h3>
+        <h4 class="mb-1">Create new buzz!</h4>
         <div class="form-group">
           <textarea id="newBuzzText" class="form-control" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Create new buzz!</button>
+        <div class="text-center">
+          <button type="submit" class="submit">Create new buzz!</button>
+
+        </div>
       </form>
     </div>
   </div>
@@ -67,7 +72,7 @@
 <footer class="container">
   <div class="row">
     <div class="col footer">
-      <hr />
+      <hr>
       Copyright ©2019
     </div>
   </div>
