@@ -1,4 +1,5 @@
 var db = require("../models");
+var validator = require("validator");
 
 module.exports = function (app) {
   // ---------------------------------- Get Routes
@@ -130,9 +131,15 @@ module.exports = function (app) {
   // ---------------------------------- Post Routes
   // Posts
   app.post("/api/posts", async function (req, res) {
-    console.log(req.body);
+    console.log(req.body.avatar);
+    const inputValues = {
+      displayName: req.body.displayName,
+      avatar: validator.isInt(req.body.avatar) ? req.body.avatar : 1,
+      text: req.body.text
+    }
+    console.log(inputValues.avatar);
     try {
-      const posts = await db.post.create(req.body);
+      const posts = await db.post.create(inputValues);
 
       res.json(posts);
     }
@@ -151,7 +158,7 @@ module.exports = function (app) {
         postId,
         text,
         displayName,
-        avatar
+        avatar: validator.isInt(avatar) ? avatar : 1
       });
       res.json(posts);
     }
