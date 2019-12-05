@@ -21,8 +21,28 @@ $('#newBuzzForm').submit(function (event) {
   }, {
     text, displayName
   }, () => {
-    console.log('posted');
+    location.reload();
   });
+});
+
+$('.new-comment').submit(function (event) {
+  event.preventDefault();
+
+  const postId = $(this).data().id;
+  const formInputs = $(this).serializeArray();
+  const newComment = {
+    postId,
+    text: formInputs[0].value,
+    displayName: formInputs[1].value
+  }
+
+  $.post({
+    url: `api/posts/${postId}/comments`
+  },
+    newComment,
+    () => {
+      location.reload();
+    });
 });
 
 // // Get references to page elements
