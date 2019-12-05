@@ -21,7 +21,7 @@ $('#newBuzzForm').submit(function (event) {
   }, {
     text, displayName
   }, () => {
-    location.reload();
+    location.reload(true);
   });
 });
 
@@ -41,7 +41,23 @@ $('.new-comment').submit(function (event) {
   },
     newComment,
     () => {
-      location.reload();
+      location.reload(true);
+    });
+});
+
+$('.like-button').click(function () {
+  const postId = $(this).data().id;
+  const scoreChange = $(this).data().score;
+
+  console.log(postId, scoreChange);
+
+  $.ajax({
+    url: `api/posts/${postId}`,
+    method: 'PUT'
+  },
+    { id: postId, score: scoreChange },
+    () => {
+      location.reload(true);
     });
 });
 

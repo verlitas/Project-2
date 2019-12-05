@@ -179,23 +179,24 @@ module.exports = function (app) {
   // });
   // ----------------------------------- Put Route
   app.put("/api/posts/:id", async function (req, res) {
-    try {
-      db.post.update(
-        {
-          score: db.sequelize.literal('score + 1')
-        },
-        {
-          where: {
-            id: req.params.id
-          }
-        });
-      res.status(200)
-    }
-    catch (err) {
-      console.log(err)
-      res.status(500).end();
-    }
-  })
+    console.log(req.body);
+    // try {
+    //   db.post.update(
+    //     {
+    //       score: db.sequelize.literal(`score + ${req.body.score}`)
+    //     },
+    //     {
+    //       where: {
+    //         id: req.params.id
+    //       }
+    //     });
+    //   res.status(200)
+    // }
+    // catch (err) {
+    //   console.log(err)
+    //   res.status(500).end();
+    // }
+  });
 
   // // ---------------------------------- Delete Route
   // // Delete Post by ID

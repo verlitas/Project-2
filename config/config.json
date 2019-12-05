@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "",
     "database": "buzzerdb",
     "host": "localhost",
     "dialect": "mysql"
