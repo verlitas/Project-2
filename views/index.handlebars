@@ -1,6 +1,20 @@
 <header class="jumbotron container">
   <div class="row">
-    <div class="col-10">
+    <div class="col-6 px-5">
+      <form class="form" id="newBuzzForm">
+        <h3 class="mb-1">Create new buzz!</h3>
+        <div class="form-group">
+          <textarea id="newBuzzText" class="form-control" rows="3"></textarea>
+        </div>
+        <h5 class="mb-1">Display name</h5>
+        <div class="form-group">
+          <input id="newBuzzDisplayName" type="text" class="form-control"></input>
+          <small class="text-muted">(Leave blank to post anonymously)</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Create new buzz!</button>
+      </form>
+    </div>
+    <div class="col-6">
       <h1>BeeChin!</h1>
       <p>What's buzzin'?</p>
     </div>
@@ -9,28 +23,10 @@
 
 <main class="container">
   <div class="row">
-    <div class="col-4">
-      <div class="container">
-        <form id="newBuzzForm">
-          <div class="form-group">
-            <textarea id="newBuzzText" class="form-control" rows="3"></textarea>
-          </div>
-          <p>Posted by: (Leave blank to post anonymously)</p>
-          <div class="form-group">
-            <input id="newBuzzDisplayName" type="text" class="form-control"></input>
-          </div>
-          <button type="submit" class="btn btn-primary">Create new buzz!</button>
-        </form>
-      </div>
-    </div>
-
-
-    <div class="col-8">
-
+    <div class="col-12">
       {{#each sortedPostsWithComments}}
       {{> post }}
       {{/each}}
-
     </div>
   </div>
 </main>
