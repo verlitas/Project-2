@@ -1,5 +1,9 @@
 body {
-  background-image: url("../public/img/Honeycomb.jpg");
+  background-image: url('/img/Honeycomb.jpg');
+  /* OR
+  background: linear-gradient(145deg, #fceabb, #f8b500)
+   */
+  font-family: 'Bree Serif', serif;
 }
 
 img {
@@ -8,13 +12,29 @@ img {
 
 h1 {
   font-family: 'Spicy Rice', cursive;
+  font-size: -webkit-xxx-large;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
 }
 
 /* class */
 
+.card {
+  border-radius: 0.75rem;
+}
+
+.card-body, .col-md-2 {
+  background-color: floralwhite;
+  border-radius: 1pc;
+}
+
 .jumbotron {
   box-shadow: 5px 6px 0px 3px black;
   width: 73%;
+  background-color: floralwhite;
+  border-radius: 1pc;
 }
 
 .footer {
@@ -28,21 +48,71 @@ h1 {
   line-height: 2.5;
 }
 
+.form-group {
+  margin: 1rem;
+}
+
+.col-2, .col-3, .mb-1 {
+  text-align: center;
+}
+
 .col-12 {
-  box-shadow: 5px 6px 0px 3px black;
+  border-radius: 0.5pc;
+  box-shadow: 2.5px 6px 0px 2px black;
   padding: 0px;
 }
 
+.card-header-pills {
+  place-content: center;
+}
+
+.card-img {
+  width: 70%;
+}
+
 .btn {
-  box-shadow: 5px 6px 0px 3px black;
+  box-shadow: 4px 4px 0px 2px black;
+}
+
+.submit {
+  border-radius: 1pc;
+  box-shadow: 4px 4px 0px 2px black;
+  background-color: gold;
+}
+
+.selectpicker {
+  border-radius: 10pc;
+  width: -webkit-fill-available;
+  box-shadow: 4px 4px 0px 2px black;
+  height: 38px;
+  background-color: ghostwhite;
+  text-align-last: center;
+}
+
+.small {
+  margin-top: 10px;
+  text-align: center;
 }
 
 /* id */
 
 #newBuzzText {
-  box-shadow: inset 2px 1px 6px 2px black;
+  border-radius: 10pc;
+  box-shadow: 4px 4px 0px 2px black;
+  background-color: ghostwhite;
 }
 
 #newBuzzDisplayName {
-  box-shadow: inset 2px 1px 6px 2px black;
+  border-radius: 10pc;
+  box-shadow: 4px 4px 0px 2px black;
+  background-color: ghostwhite;
+  margin-bottom: 7px;
+}
+
+#logo {
+  width: 80%;
+}
+
+#form {
+  border-radius: 1pc;
 }
