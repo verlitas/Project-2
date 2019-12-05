@@ -49,13 +49,20 @@ $('.like-button').click(function () {
   const postId = $(this).data().id;
   const scoreChange = $(this).data().score;
 
+  $(this).removeClass('disabled');
+  $(this).siblings('button').addClass('disabled');
+  // $(this).addClass('disabled')
   console.log(postId, scoreChange);
 
-  $.ajax({
-    url: `api/posts/${postId}`,
-    method: 'PUT'
-  },
-    { id: postId, score: scoreChange },
+  $.ajax(
+    {
+      url: `api/posts/${postId}`,
+      method: 'PUT'
+    },
+    {
+      id: postId,
+      score: scoreChange
+    },
     () => {
       location.reload(true);
     });
