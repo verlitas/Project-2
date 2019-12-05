@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "",
     "database": "buzzerdb",
     "host": "localhost",
     "dialect": "mysql"
@@ -15,7 +15,12 @@
     "logging": false
   },
   "production": {
+    "host": "gx97kbnhgjzh3efb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "yjaqj73g78hlbu23",
+    "password": "deqy6ydljklz0aee",
+    "database": "b5ywuwyrgmt5jann",
     "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "operatorsAliases": false
   }
 }
