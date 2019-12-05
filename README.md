@@ -16,10 +16,12 @@ In your terminal type:
 * For further instructions, visit https://help.github.com
 
 ## Demo
-Live Link: 
+![livedemo](public/img/buzzin.gif)
+Live Link: https://secure-shore-00883.herokuapp.com/
 
 ## Credits
-[UABootCamp](https://bootcamp.ce.arizona.edu/coding/)
-[Tj Cheetham](https://github.com/Tjcheetham)
-[Derek Stoeckmann](https://github.com/derekstoeckmann)
-[Kondali Kangha](https://github.com/kdavid00)
+[UABootCamp](https://bootcamp.ce.arizona.edu/coding/)  
+[Melody Kirshberg](https://github.com/verlitas)  
+[Tj Cheetham](https://github.com/Tjcheetham)  
+[Derek Stoeckmann](https://github.com/derekstoeckmann)  
+[Kondali Kangha](https://github.com/kdavid00)  
