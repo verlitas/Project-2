@@ -2,7 +2,8 @@
 
 
 ## Description
-A Reddit and 4Chan clone for our Project 2. 
+BeeChin is a reddit/4chan hybrid app that allows the user to make posts and comment on posts, anonymously or not. The app also has a reddit-style post upvote/downvote system, and allows the user to sort posts by most recent, highest voted, etc.
+If you have something to say or just want to connect socially with others around the world, find your way to BeeChin and let your voice be heard, even if it stings!
 
 ## Table of Contents
 * [Installation](#installation)
