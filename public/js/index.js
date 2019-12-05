@@ -32,8 +32,7 @@ $('.new-comment').submit(function (event) {
   const formInputs = $(this).serializeArray();
   const newComment = {
     postId,
-    text: formInputs[0].value,
-    displayName: formInputs[1].value || "Anonymous"
+    text: formInputs[0].value
   }
 
   $.post({
