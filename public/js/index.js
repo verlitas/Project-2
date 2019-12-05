@@ -45,6 +45,15 @@ $('.like-button').click(function () {
     score: $(this).data().score
   };
 
+  let currentScore = $(this).siblings('h3').text();
+
+  if (String(inputValues.score) === '+1') {
+    currentScore = parseInt(currentScore) + 1;
+  } else if (String(inputValues.score) === '-1') {
+    currentScore = parseInt(currentScore) - 1;
+  }
+
+  $(this).siblings('h3').text(currentScore);
   $(this).removeClass('disabled');
   $(this).siblings('button').addClass('disabled');
 
