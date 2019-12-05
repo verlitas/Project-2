@@ -1,4 +1,5 @@
-# BeeChin
+![BeeChin](public/img/Header.png)
+
 
 ## Description
 A Reddit and 4Chan clone for our Project 2. 
