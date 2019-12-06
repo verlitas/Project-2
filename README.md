@@ -12,7 +12,7 @@ If you have something to say or just want to connect socially with others around
 
 ## Installation
 In your terminal type: 
-```git clone https://github.com/verlitas/Project-2```
+```git clone https://github.com/verlitas/BeeChin.git```
 * Open in Visual Studio to build and run.
 * For further instructions, visit https://help.github.com
 
