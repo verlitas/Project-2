@@ -24,6 +24,7 @@ Sketchbook - Adobe Photoshop
 
 ## Demo
 ![livedemo](public/img/buzzin.gif)
+
 Live Link: https://secure-shore-00883.herokuapp.com/
 
 ## Credits
